@@ -1,0 +1,33 @@
+{
+  "name": "sc-react-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --color --hot --config ./webpack.config.js"
+  },
+  "keywords": [],
+  "author": "BeaverGuo",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "6.22.1",
+    "babel-loader": "6.2.10",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-react": "6.22.0",
+    "babel-preset-stage-2": "6.22.0",
+    "react-hot-loader": "1.3.1",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
