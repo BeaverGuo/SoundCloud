@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as trackSelector from '../selectors'; 
-
-const Stream = ({ tracks }) =>
-  <div>
-    {
-      tracks.map((track,key) => 
-        <div className="track" key={key}>{track.title}</div>)
-    }
-  </div>;
+import Stream from './presenter.js';
+import * as trackSelector from '../../selectors'; 
 
 const makeMapStateToProps = (state, props) => {
     //const mapStateToProps = (state, props) => { tracks: trackSelector.getTracks(state) };
