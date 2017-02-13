@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import Stream from './presenter.js';
-import * as trackSelector from '../../selectors'; 
+import * as allSelectors from '../../selectors'; 
 
 const makeMapStateToProps = (state, props) => {
-    //const mapStateToProps = (state, props) => { tracks: trackSelector.getTracks(state) };
-    return { tracks: trackSelector.getTracks(state) };
+    //const mapStateToProps = (state, props) => { tracks: allSelectors.getTracks(state) };
+    return { 
+        tracks: allSelectors.getTracks(state),
+        user: allSelectors.getAuth(state)
+    };
 };
 
-export default connect(makeMapStateToProps)(Stream);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAuth: bindActionCreators(actions.auth, dispatch)
+    };
+}
+
+export default connect(makeMapStateToProps, mapDispatchToProps)(Stream);
