@@ -9,13 +9,15 @@ const makeMapStateToProps = (state, props) => {
     //const mapStateToProps = (state, props) => { tracks: allSelectors.getTracks(state) };
     return { 
         tracks: allSelectors.getTracks(state),
-        user: allSelectors.getAuth(state)
+        user: allSelectors.getAuth(state),
+        activeTrack: allSelectors.getActiveTrack(state)
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAuth: bindActionCreators(actions.auth, dispatch)
+        onAuth: bindActionCreators(actions.auth, dispatch),
+        onPlay: bindActionCreators(actions.playTrack, dispatch)
     };
 }
 

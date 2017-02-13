@@ -12,17 +12,17 @@ import Stream from './components/Stream';
 import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
 
 SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
-const tracks = [
-    {
-        title: 'Some track'
-    },
-    {
-        title: 'Some other track'
-    }
-];
+// const tracks = [
+//     {
+//         title: 'Some track'
+//     },
+//     {
+//         title: 'Some other track'
+//     }
+// ];
 
 const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+//store.dispatch(actions.setTracks(tracks));
 //sync browserhistory with store
 const history = syncHistoryWithStore(browserHistory, store);
 
