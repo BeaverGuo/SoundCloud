@@ -1,46 +1,50 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Col, Row } from 'react-bootstrap';
 import { CLIENT_ID } from '../../constants/auth';
-
-require('./style.scss');
+import HotelInfo from '../HotelInfo';
 
 class Stream extends Component{
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
     componentDidUpdate() {
-        const audioElement = ReactDOM.findDOMNode(this.refs.audio);
-        if (!audioElement) { return; }
-        const { activeTrack } = this.props;
-        if (activeTrack) {
-            audioElement.play();
-        } else {
-            audioElement.pause();
-        }
+        //fetch data here...
+
     }
 
     render() {
-        const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props;
         return (
-            <div className={`title`}>
-                title indicator
-                <div>
-                    {
-                        user ? <div>{user.username}</div> :
-                        <button onClick={onAuth} type="button">Login</button>
-                    }
-                </div>
-                <br />
-                <div>
-                    {
-                      tracks.map((track,key) => 
-                        <div className="track" key={key}>{track.origin ? track.origin.title : 'None'}
-                        <button type="button" onClick={() => onPlay(track)}>Play</button>
-                        </div>)
-                    }
-                </div>
-                {
-                    activeTrack ? <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}>
-                    </audio> : null
-                }
-            </div>
+            <Row className="show-grid">
+            <Col className="sidebar" md={4} mdPush={4}>
+                <ul className="sidebar-menu">
+                    <li className="header">
+                        <span className="logo"></span>
+                        Crowdbotics 
+                    </li>
+                    <span className="report">Reporting system</span>
+                    <li className="treeview">
+                        <a href="#">
+                            01 &nbsp;<span>Asia B2B Portal</span>
+                        </a> 
+                    </li>
+                    <li className="treeview">
+                        <a href="#">
+                            02 &nbsp;<span>Asia Hotel.Quick fix</span>
+                        </a> 
+                    </li>
+                    <li className="treeview">
+                        <a href="#">
+                            03 &nbsp;<span>Online store Redesign</span>
+                        </a> 
+                    </li>
+                </ul>
+            </Col>
+            <Col md={8} mdPush={8}>
+                <HotelInfo />
+            </Col>
+            </Row>
         );
     }
 }

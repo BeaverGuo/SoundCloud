@@ -26,6 +26,13 @@ module.exports = {
             loader: 'react-hot!babel'
         },
         {
+            test: /\.(jpg|png|gif)$/,
+            loaders: [
+                'file-loader',
+                'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
+            ],
+        },
+        {
             test: /\.css$/,
             loaders: ['style', 'css']
         },
