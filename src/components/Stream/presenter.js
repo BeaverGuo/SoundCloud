@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { CLIENT_ID } from '../../constants/auth';
 
+require('./style.scss');
+
 class Stream extends Component{
     componentDidUpdate() {
         const audioElement = ReactDOM.findDOMNode(this.refs.audio);
@@ -17,7 +19,7 @@ class Stream extends Component{
     render() {
         const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props;
         return (
-            <div>
+            <div className={`title`}>
                 title indicator
                 <div>
                     {

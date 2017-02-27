@@ -11,6 +11,8 @@ import Callback from './components/Callback';
 import Stream from './components/Stream';
 import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
 
+require('../styles/index.scss');
+
 SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
 // const tracks = [
 //     {
