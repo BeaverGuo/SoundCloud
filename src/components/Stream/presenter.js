@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import { Col, Row } from 'react-bootstrap';
 import { CLIENT_ID } from '../../constants/auth';
 import HotelInfo from '../HotelInfo';
+import logo_img from './logo.png';
 
-class Stream extends Component{
+
+class Stream extends Component {
     constructor(props){
         super(props);
         this.state = {};
@@ -16,14 +18,20 @@ class Stream extends Component{
 
     render() {
         return (
-            <Row className="show-grid">
-            <Col className="sidebar" md={4} mdPush={4}>
+            <div>
+            <Col md={2}>
+            <aside className="main-sidebar">
+                <section className="sidebar">
+                    <div className="logo">
+                        <div className="pull-left image">
+                            <img src={logo_img} width={`23px`} height={`23px`} alt="Logo Image" />
+                        </div>
+                        <div className="pull-left info">
+                            <p>Crowdbotics</p>
+                            <p className="report">Reporting system</p>
+                        </div>
+                    </div>
                 <ul className="sidebar-menu">
-                    <li className="header">
-                        <span className="logo"></span>
-                        Crowdbotics 
-                    </li>
-                    <span className="report">Reporting system</span>
                     <li className="treeview">
                         <a href="#">
                             01 &nbsp;<span>Asia B2B Portal</span>
@@ -40,11 +48,13 @@ class Stream extends Component{
                         </a> 
                     </li>
                 </ul>
+                </section>
+            </aside>
             </Col>
-            <Col md={8} mdPush={8}>
+            <Col md={10}>
                 <HotelInfo />
             </Col>
-            </Row>
+            </div>
         );
     }
 }

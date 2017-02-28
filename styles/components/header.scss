@@ -1,0 +1,18 @@
+.header p {
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 15px;
+    color: $redlike;
+    display: inline-block;
+}
+
+.header span {
+    float: right;
+    line-height: 63px;
+    margin-right: 30px;
+}
+
+.header span svg {
+    margin-right: 10px;
+    margin-left: 10px;
+}

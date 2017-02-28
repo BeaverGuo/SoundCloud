@@ -11,6 +11,10 @@ const readTemplate = function() {
     return html;
 };
 
+var config = {
+    iconPath: 'node_modules/react-icons'
+};
+
 module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
@@ -25,13 +29,7 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'react-hot!babel'
         },
-        {
-            test: /\.(jpg|png|gif)$/,
-            loaders: [
-                'file-loader',
-                'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
-            ],
-        },
+        { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
         {
             test: /\.css$/,
             loaders: ['style', 'css']
@@ -39,6 +37,21 @@ module.exports = {
         {
             test: /\.scss$/,
             loaders: ['style', 'css', 'sass']
+        },
+        {
+            test: /\.json$/,
+            loader: 'json-loader',
+        },
+        {
+            test: /react-icons\/(.)*(.js)$/,
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015', 'react']
+            }
+        },
+        {
+            test: /\.(eot|woff|woff2|ttf|svg)$/,
+            loader: 'url-loader?limit=50000&name=[name]-[hash].[ext]'
         }]
     },
     resolve: {

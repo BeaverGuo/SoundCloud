@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import HotelQuickFix from '../HotelQuickFix';
+import ProjectInfo from '../ProjectInfo';
+import GeneralInfo from '../GeneralInfo';
+import Metrics from '../Metrics';
+import Employee from '../Employee';
 
 class HotelInfo extends Component{
     constructor(props){
@@ -10,7 +13,11 @@ class HotelInfo extends Component{
     render() {
         return (
             <div>
-                <HotelQuickFix />
+                <ProjectInfo />
+                <GeneralInfo />
+                <Metrics />
+                <Employee />
+                <GeneralInfo />
             </div>
         );
     }

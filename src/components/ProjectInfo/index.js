@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Header from '../Header';
 
-class HotelQuickFix extends Component{
+class ProjectInfo extends Component{
     constructor(props){
         super(props);
         this.state = {};
@@ -13,16 +14,15 @@ class HotelQuickFix extends Component{
     render() {
         return (
             <div>
-                <p>Astoria Hotel. Quick fix</p>
-                <div>
+                <Header />
+                <div className="project-info">
                     <p>Project in progress:  since December 14. 2016</p>
-                    <p>Team members(3):  since December 14. 2016</p>
-                    <p>Total hours spent:  since December 14. 2016</p>
-                    
+                    <p>Team members(3):  Team members(3)</p>
+                    <p>Total hours spent:  563</p>
                 </div>
             </div>
         );
     }
 }
 
-export default HotelQuickFix;
+export default ProjectInfo;
